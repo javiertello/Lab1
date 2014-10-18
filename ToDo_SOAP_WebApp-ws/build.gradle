@@ -1,0 +1,67 @@
+buildscript {
+    repositories {
+        jcenter()
+	mavenCentral()
+    }
+ 
+    dependencies {
+        classpath (group: 'com.sahlbach.gradle', name: 'gradle-jetty-eclipse-plugin', version: '1.9.+')
+	classpath 'org.gradle.jacobo.plugins:gradle-wsdl-plugin:1.7.6'
+	classpath 'org.gradle.jacobo.plugins:gradle-jaxb-plugin:1.3.4'
+    }
+}
+
+apply plugin: 'com.github.jacobono.wsdl'
+apply plugin: 'com.github.jacobono.jaxb'
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'jettyEclipse'
+apply plugin: 'eclipse'
+apply plugin: 'eclipse-wtp'
+
+
+repositories {
+   mavenCentral()                                               
+}
+
+dependencies {
+   providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+   compile 'com.google.code.gson:gson:2.3'
+   jaxws "com.sun.xml.ws:jaxws-rt:2.2.8"
+   jaxws "com.sun.xml.ws:jaxws-tools:2.2.8"
+}
+
+//
+// See the documentation of this plugin at
+// https://github.com/jacobono/gradle-wsdl-plugin
+// 
+
+wsdl {
+  wsdlFolder = "src/main/wsdl"
+  wsimport {
+    sourceDestinationDirectory = "src-gen/main/java"
+    wsdlLocation = "http://localhost:8081/toDoSOAP?wsdl"
+  }
+}
+
+sourceSets.main.java.srcDirs += wsdl.wsimport.sourceDestinationDirectory
+compileJava.dependsOn wsimport 
+
+//
+// Required by XJC because toDoSOAP.xsd is a file
+//
+
+System.setProperty('javax.xml.accessExternalSchema', 'all')
+
+//
+// The client
+//
+//
+// task client(type: JavaExec) {
+//    group 		= 'ToDoSOAP Client'
+//    description 	= 'Run a client that connectos to a SOAP endpoint'
+//    main 		= 'bigws.hellows.Client'
+//    classpath 		= sourceSets.main.runtimeClasspath
+//}
+

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.8 svn-revision#13980. --><xs:schema xmlns:tns="http://toDo_SOAP/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://toDo_SOAP/">
+
+<xs:element name="addToDo" type="tns:addToDo"/>
+
+<xs:element name="addToDoResponse" type="tns:addToDoResponse"/>
+
+<xs:element name="removeToDo" type="tns:removeToDo"/>
+
+<xs:element name="removeToDoResponse" type="tns:removeToDoResponse"/>
+
+<xs:element name="listToDo" type="tns:listToDo"/>
+
+<xs:element name="listToDoResponse" type="tns:listToDoResponse"/>
+
+<xs:complexType name="addToDo">
+<xs:sequence>
+<xs:element name="task" type="xs:string" minOccurs="0"/>
+<xs:element name="context" type="xs:string" minOccurs="0"/>
+<xs:element name="project" type="xs:string" minOccurs="0"/>
+<xs:element name="priority" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addToDoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeToDo">
+<xs:sequence>
+<xs:element name="task" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeToDoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listToDo">
+</xs:complexType>
+
+<xs:complexType name="listToDoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:byte" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

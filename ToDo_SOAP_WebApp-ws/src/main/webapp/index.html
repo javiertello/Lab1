@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>ToDo SOAP WebApp!</title>
+</head>
+<body>
+	<h1>Select a operation (Add, Remove or List tasks)</h1>
+	<form action="addtask" method="get">
+		<b>Add a task</b><br/>
+		Enter a task name: <input type="text" name="task"><br/>
+		Enter a context name: <input type="text" name="context"><br/>
+		Enter a project name: <input type="text" name="project"><br/>
+		Enter a priority name: <input type="text" name="priority"><br/>
+		<input type="submit" value="Add Task">
+	</form>
+	<hr>
+	<form action="deletetask" method="get">
+		<b>Delete a task</b><br/>
+		Enter the task name: <input type="text" name="task"><br/>
+		<input type="submit" value="Delete Task">
+	</form>
+	<hr>
+	<form action="listtasks" method="get">
+		<b>List tasks</b><br/>
+		<input type="submit" value="Click to list">
+	</form>
+	
+</body>
+</html>
