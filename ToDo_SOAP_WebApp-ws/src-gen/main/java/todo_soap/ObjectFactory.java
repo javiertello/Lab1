@@ -87,6 +87,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ToDo }
+     * 
+     */
+    public ToDo createToDo() {
+        return new ToDo();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ListToDo }{@code >}}
      * 
      */

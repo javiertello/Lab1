@@ -1,7 +1,6 @@
 package servlets;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -12,9 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import toDo.*;
-import com.google.gson.Gson;
-
+import todo_soap.*;
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = { "/listtasks" })
 public class ToDoListServlet extends HttpServlet {

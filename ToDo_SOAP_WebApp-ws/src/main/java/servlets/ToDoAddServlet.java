@@ -1,30 +1,26 @@
 package servlets;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import toDo.ToDo;
-import toDo.ToDoList;
-
-import com.google.gson.Gson;
+import todo_soap.*;
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = { "/addtask" })
-public class ToDoAddServlet {
+public class ToDoAddServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
 		String task = req.getParameter("task");
 		String context = req.getParameter("context");
 		String project = req.getParameter("project");
-		String priority = String.valueOf(req.getParameter("priority"));
+		int priority = Integer.parseInt(req.getParameter("priority"));
 		
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
@@ -39,7 +35,7 @@ public class ToDoAddServlet {
 			ToDoWebServiceService twss = new ToDoWebServiceService();
 			ToDoWebService tws = twss.getToDoWebServicePort();
 			
-			String res = tws.addToDo();
+			String res = tws.addToDo(task, context, project, priority);
 			resp.setStatus(HttpServletResponse.SC_OK);
 			out.println("<html><head><title>ToDo SOAP WebApp</title></head>"
 					+ "<body>"

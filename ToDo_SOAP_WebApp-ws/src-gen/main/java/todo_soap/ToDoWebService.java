@@ -1,6 +1,7 @@
 
 package todo_soap;
 
+import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -63,12 +64,12 @@ public interface ToDoWebService {
     /**
      * 
      * @return
-     *     returns java.lang.Byte
+     *     returns java.util.List<todo_soap.ToDo>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "listToDo", targetNamespace = "http://toDo_SOAP/", className = "todo_soap.ListToDo")
     @ResponseWrapper(localName = "listToDoResponse", targetNamespace = "http://toDo_SOAP/", className = "todo_soap.ListToDoResponse")
-    public Byte listToDo();
+    public List<ToDo> listToDo();
 
 }

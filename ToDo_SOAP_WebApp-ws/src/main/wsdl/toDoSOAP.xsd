@@ -42,9 +42,18 @@
 <xs:complexType name="listToDo">
 </xs:complexType>
 
+<xs:complexType name="ToDo">
+<xs:all>
+<xs:element name="task" type="xs:string"/>
+<xs:element name="context" type="xs:string"/>
+<xs:element name="project" type="xs:string"/>
+<xs:element name="priority" type="xs:int"/>
+</xs:all>
+
+</xs:complexType>
 <xs:complexType name="listToDoResponse">
 <xs:sequence>
-<xs:element name="return" type="xs:byte" minOccurs="0"/>
+<xs:element name="return" type="tns:ToDo" maxOccurs="unbounded" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

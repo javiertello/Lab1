@@ -54,6 +54,8 @@ compileJava.dependsOn wsimport
 
 System.setProperty('javax.xml.accessExternalSchema', 'all')
 
+jettyEclipse.httpPort = 8081
+
 //
 // The client
 //
