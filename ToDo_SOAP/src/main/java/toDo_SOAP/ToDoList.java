@@ -20,6 +20,7 @@ public class ToDoList {
 		int i = 0;
 		int borrar = 0;
 		boolean encontrado = false;
+
 		for (ToDo t : list) {
 			if (t.getTask().equals(task)) {
 				borrar = i;

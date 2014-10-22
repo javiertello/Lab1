@@ -54,6 +54,7 @@ public class ToDoWebService {
 
 	@WebMethod()
 	public String removeToDo(String task) {
+
 		String filename = DEFAULT_FILE_NAME;
 		String result = "";
 		ToDoList list = new ToDoList();

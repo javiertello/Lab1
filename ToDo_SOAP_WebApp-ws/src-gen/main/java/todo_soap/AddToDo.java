@@ -16,10 +16,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="task" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="context" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="project" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="priority" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="arg2" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="arg3" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,112 +30,104 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "addToDo", propOrder = {
-    "task",
-    "context",
-    "project",
-    "priority"
+    "arg0",
+    "arg1",
+    "arg2",
+    "arg3"
 })
 public class AddToDo {
 
-    protected String task;
-    protected String context;
-    protected String project;
-    protected Integer priority;
+    protected String arg0;
+    protected String arg1;
+    protected String arg2;
+    protected int arg3;
 
     /**
-     * Obtiene el valor de la propiedad task.
+     * Obtiene el valor de la propiedad arg0.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getTask() {
-        return task;
+    public String getArg0() {
+        return arg0;
     }
 
     /**
-     * Define el valor de la propiedad task.
+     * Define el valor de la propiedad arg0.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setTask(String value) {
-        this.task = value;
+    public void setArg0(String value) {
+        this.arg0 = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad context.
+     * Obtiene el valor de la propiedad arg1.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getContext() {
-        return context;
+    public String getArg1() {
+        return arg1;
     }
 
     /**
-     * Define el valor de la propiedad context.
+     * Define el valor de la propiedad arg1.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setContext(String value) {
-        this.context = value;
+    public void setArg1(String value) {
+        this.arg1 = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad project.
+     * Obtiene el valor de la propiedad arg2.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getProject() {
-        return project;
+    public String getArg2() {
+        return arg2;
     }
 
     /**
-     * Define el valor de la propiedad project.
+     * Define el valor de la propiedad arg2.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setProject(String value) {
-        this.project = value;
+    public void setArg2(String value) {
+        this.arg2 = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad priority.
+     * Obtiene el valor de la propiedad arg3.
      * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
      */
-    public Integer getPriority() {
-        return priority;
+    public int getArg3() {
+        return arg3;
     }
 
     /**
-     * Define el valor de la propiedad priority.
+     * Define el valor de la propiedad arg3.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
      */
-    public void setPriority(Integer value) {
-        this.priority = value;
+    public void setArg3(int value) {
+        this.arg3 = value;
     }
 
 }

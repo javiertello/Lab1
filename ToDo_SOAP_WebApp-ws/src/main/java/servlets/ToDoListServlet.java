@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import todo_soap.*;
-@SuppressWarnings("serial")
+
 @WebServlet(urlPatterns = { "/listtasks" })
 public class ToDoListServlet extends HttpServlet {
 	
@@ -42,7 +42,7 @@ public class ToDoListServlet extends HttpServlet {
 			resp.setStatus(HttpServletResponse.SC_OK);
 			out.println("<html><head><title>ToDo SOAP WebApp</title></head>"
 					+ "<body><h1>Tasks list</h1><br/>"
-					 + list
+					 + lista
 					+ "</body></html>");
 		}
 	}

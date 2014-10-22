@@ -1,13 +1,13 @@
 buildscript {
     repositories {
         jcenter()
-	mavenCentral()
+		mavenCentral()
     }
  
     dependencies {
         classpath (group: 'com.sahlbach.gradle', name: 'gradle-jetty-eclipse-plugin', version: '1.9.+')
-	classpath 'org.gradle.jacobo.plugins:gradle-wsdl-plugin:1.7.6'
-	classpath 'org.gradle.jacobo.plugins:gradle-jaxb-plugin:1.3.4'
+		classpath 'org.gradle.jacobo.plugins:gradle-wsdl-plugin:1.7.6'
+		classpath 'org.gradle.jacobo.plugins:gradle-jaxb-plugin:1.3.4'
     }
 }
 
@@ -53,8 +53,6 @@ compileJava.dependsOn wsimport
 //
 
 System.setProperty('javax.xml.accessExternalSchema', 'all')
-
-jettyEclipse.httpPort = 8081
 
 //
 // The client

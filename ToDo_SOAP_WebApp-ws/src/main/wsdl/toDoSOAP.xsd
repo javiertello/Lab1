@@ -4,20 +4,39 @@
 
 <xs:element name="addToDoResponse" type="tns:addToDoResponse"/>
 
-<xs:element name="removeToDo" type="tns:removeToDo"/>
-
-<xs:element name="removeToDoResponse" type="tns:removeToDoResponse"/>
-
 <xs:element name="listToDo" type="tns:listToDo"/>
 
 <xs:element name="listToDoResponse" type="tns:listToDoResponse"/>
 
+<xs:element name="removeToDo" type="tns:removeToDo"/>
+
+<xs:element name="removeToDoResponse" type="tns:removeToDoResponse"/>
+
+<xs:complexType name="listToDo">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listToDoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:toDo" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="toDo">
+<xs:sequence>
+<xs:element name="context" type="xs:string" minOccurs="0"/>
+<xs:element name="priority" type="xs:int"/>
+<xs:element name="project" type="xs:string" minOccurs="0"/>
+<xs:element name="task" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="addToDo">
 <xs:sequence>
-<xs:element name="task" type="xs:string" minOccurs="0"/>
-<xs:element name="context" type="xs:string" minOccurs="0"/>
-<xs:element name="project" type="xs:string" minOccurs="0"/>
-<xs:element name="priority" type="xs:int" minOccurs="0"/>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+<xs:element name="arg2" type="xs:string" minOccurs="0"/>
+<xs:element name="arg3" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -29,31 +48,13 @@
 
 <xs:complexType name="removeToDo">
 <xs:sequence>
-<xs:element name="task" type="xs:string" minOccurs="0"/>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="removeToDoResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="listToDo">
-</xs:complexType>
-
-<xs:complexType name="ToDo">
-<xs:all>
-<xs:element name="task" type="xs:string"/>
-<xs:element name="context" type="xs:string"/>
-<xs:element name="project" type="xs:string"/>
-<xs:element name="priority" type="xs:int"/>
-</xs:all>
-
-</xs:complexType>
-<xs:complexType name="listToDoResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:ToDo" maxOccurs="unbounded" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

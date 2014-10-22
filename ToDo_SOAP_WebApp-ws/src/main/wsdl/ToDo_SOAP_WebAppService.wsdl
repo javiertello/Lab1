@@ -4,17 +4,17 @@
 <xsd:import namespace="http://toDo_SOAP/" schemaLocation="toDoSOAP.xsd"/>
 </xsd:schema>
 </types>
-<message name="addToDo">
-<part name="parameters" element="tns:addToDo"/>
-</message>
-<message name="addToDoResponse">
-<part name="parameters" element="tns:addToDoResponse"/>
-</message>
 <message name="removeToDo">
 <part name="parameters" element="tns:removeToDo"/>
 </message>
 <message name="removeToDoResponse">
 <part name="parameters" element="tns:removeToDoResponse"/>
+</message>
+<message name="addToDo">
+<part name="parameters" element="tns:addToDo"/>
+</message>
+<message name="addToDoResponse">
+<part name="parameters" element="tns:addToDoResponse"/>
 </message>
 <message name="listToDo">
 <part name="parameters" element="tns:listToDo"/>
@@ -23,13 +23,13 @@
 <part name="parameters" element="tns:listToDoResponse"/>
 </message>
 <portType name="ToDoWebService">
-<operation name="addToDo">
-<input wsam:Action="http://toDo_SOAP/ToDoWebService/addToDoRequest" message="tns:addToDo"/>
-<output wsam:Action="http://toDo_SOAP/ToDoWebService/addToDoResponse" message="tns:addToDoResponse"/>
-</operation>
 <operation name="removeToDo">
 <input wsam:Action="http://toDo_SOAP/ToDoWebService/removeToDoRequest" message="tns:removeToDo"/>
 <output wsam:Action="http://toDo_SOAP/ToDoWebService/removeToDoResponse" message="tns:removeToDoResponse"/>
+</operation>
+<operation name="addToDo">
+<input wsam:Action="http://toDo_SOAP/ToDoWebService/addToDoRequest" message="tns:addToDo"/>
+<output wsam:Action="http://toDo_SOAP/ToDoWebService/addToDoResponse" message="tns:addToDoResponse"/>
 </operation>
 <operation name="listToDo">
 <input wsam:Action="http://toDo_SOAP/ToDoWebService/listToDoRequest" message="tns:listToDo"/>
@@ -38,7 +38,7 @@
 </portType>
 <binding name="ToDoWebServicePortBinding" type="tns:ToDoWebService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="addToDo">
+<operation name="removeToDo">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -47,7 +47,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="removeToDo">
+<operation name="addToDo">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

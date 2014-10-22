@@ -26,30 +26,7 @@ public interface ToDoWebService {
 
     /**
      * 
-     * @param project
-     * @param priority
-     * @param task
-     * @param context
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "addToDo", targetNamespace = "http://toDo_SOAP/", className = "todo_soap.AddToDo")
-    @ResponseWrapper(localName = "addToDoResponse", targetNamespace = "http://toDo_SOAP/", className = "todo_soap.AddToDoResponse")
-    public String addToDo(
-        @WebParam(name = "task", targetNamespace = "")
-        String task,
-        @WebParam(name = "context", targetNamespace = "")
-        String context,
-        @WebParam(name = "project", targetNamespace = "")
-        String project,
-        @WebParam(name = "priority", targetNamespace = "")
-        Integer priority);
-
-    /**
-     * 
-     * @param task
+     * @param arg0
      * @return
      *     returns java.lang.String
      */
@@ -58,8 +35,31 @@ public interface ToDoWebService {
     @RequestWrapper(localName = "removeToDo", targetNamespace = "http://toDo_SOAP/", className = "todo_soap.RemoveToDo")
     @ResponseWrapper(localName = "removeToDoResponse", targetNamespace = "http://toDo_SOAP/", className = "todo_soap.RemoveToDoResponse")
     public String removeToDo(
-        @WebParam(name = "task", targetNamespace = "")
-        String task);
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg3
+     * @param arg2
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "addToDo", targetNamespace = "http://toDo_SOAP/", className = "todo_soap.AddToDo")
+    @ResponseWrapper(localName = "addToDoResponse", targetNamespace = "http://toDo_SOAP/", className = "todo_soap.AddToDoResponse")
+    public String addToDo(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        int arg3);
 
     /**
      * 

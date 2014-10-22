@@ -20,7 +20,13 @@ public class ToDoAddServlet extends HttpServlet{
 		String task = req.getParameter("task");
 		String context = req.getParameter("context");
 		String project = req.getParameter("project");
-		int priority = Integer.parseInt(req.getParameter("priority"));
+		int priority = 5;
+		boolean error_priority = false;
+		try{
+			priority = Integer.parseInt(req.getParameter("priority"));
+		}catch(NumberFormatException e){
+			error_priority = true;
+		}
 		
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
@@ -30,6 +36,13 @@ public class ToDoAddServlet extends HttpServlet{
 			out.println("<html><head><title>ToDo SOAP WebApp</title></head>"
 					+ "<body>"
 					+ "<h2>Please enter a task name</h2>"
+					+ "</body></html>");
+		}
+		else if(error_priority){
+			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			out.println("<html><head><title>ToDo SOAP WebApp</title></head>"
+					+ "<body>"
+					+ "<h2>Please enter valid priority (1-10)</h2>"
 					+ "</body></html>");
 		}else{
 			ToDoWebServiceService twss = new ToDoWebServiceService();

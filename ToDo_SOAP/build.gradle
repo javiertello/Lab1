@@ -25,4 +25,5 @@ dependencies {
    compile 'com.google.code.gson:gson:2.3'
 }
 
-jettyEclipse.httpPort = 8081
+jettyEclipse.httpPort=8081
+jettyEclipse.stopPort=8091
